@@ -8,15 +8,31 @@ function save () {
 
 const patternBody = document.querySelector('#patterns')
 function render () {
-  patternBody.innerHTML = patterns.map(
-    ({pattern, replace}, i) => `<tr>
-      <td>${pattern}</td>
-      <td>${replace}</td>
-      <td>
-        <button data-index=${i}>Remove</button>
-      </td>
-    </tr>`
-  ).join('')
+  while (patternBody.firstChild) {
+    patternBody.removeChild(patternBody.firstChild)
+  }
+
+  patterns.forEach(({pattern, replace}, i) => {
+    const tr = document.createElement('tr')
+
+    const patternTD = document.createElement('td')
+    patternTD.innerText = pattern
+    tr.appendChild(patternTD)
+
+    const replaceTD = document.createElement('td')
+    replaceTD.innerText = replace
+    tr.appendChild(replaceTD)
+
+    const buttonTD = document.createElement('td')
+    const button = document.createElement('button')
+    button.dataset.index = i
+    button.innerText = 'Remove'
+    buttonTD.appendChild(button)
+
+    tr.appendChild(buttonTD)
+
+    patternBody.appendChild(tr)
+  })
 }
 patternBody.addEventListener('click', (e) => {
   if (e.target.nodeName !== 'BUTTON') {

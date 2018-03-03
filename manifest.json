@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Rewritify",
+  "version": "1.0",
+
+  "description": "Replace text across all websites using regular expressions. It's like find and replace for the entire internet!",
+
+  "icons": {
+    "48": "icons/ic_find_replace_black_48dp_1x.png",
+    "96": "icons/ic_find_replace_black_48dp_2x.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["rewrite.js"]
+    }
+  ],
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "permissions": ["storage"]
+}

@@ -1,0 +1,45 @@
+<style>
+.group {
+  margin: 8px 0;
+}
+input {
+  display: block;
+}
+th {
+  text-align: left;
+}
+table {
+  width: 100%;
+}
+</style>
+
+<h1>Rewritify Settings</h1>
+
+<h2>Patterns</h2>
+
+<table>
+  <thead>
+    <th>Pattern</th>
+    <th>Replace With</th>
+  </thead>
+  <tbody id="patterns">
+  </tbody>
+</table>
+
+<h2>Add Pattern</h2>
+
+<div class="group">
+  <label for="pattern">RegExp Pattern (Ex: foo, (a|b)+)</label>
+  <input id="pattern" type="text">
+</div>
+
+<div class="group">
+  <label for="replace">Replace With</label>
+  <input id="replace" type="text">
+</div>
+
+<div class="group">
+  <button id="addPattern">Add Pattern</button>
+</div>
+
+<script src="options.js"></script>
